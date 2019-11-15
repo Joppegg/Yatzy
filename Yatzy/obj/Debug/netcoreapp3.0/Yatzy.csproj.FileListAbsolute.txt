@@ -4,7 +4,6 @@ C:\Users\jongr\source\repos\Yatzy\Yatzy\bin\Debug\netcoreapp3.0\Yatzy.runtimecon
 C:\Users\jongr\source\repos\Yatzy\Yatzy\bin\Debug\netcoreapp3.0\Yatzy.runtimeconfig.dev.json
 C:\Users\jongr\source\repos\Yatzy\Yatzy\bin\Debug\netcoreapp3.0\Yatzy.dll
 C:\Users\jongr\source\repos\Yatzy\Yatzy\bin\Debug\netcoreapp3.0\Yatzy.pdb
-C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.csprojAssemblyReference.cache
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.AssemblyInfoInputs.cache
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.AssemblyInfo.cs
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.dll

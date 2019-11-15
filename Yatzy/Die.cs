@@ -14,6 +14,13 @@ namespace Yatzy
 
         public int Value { get; set; }
 
+        public int Roll()
+        {
+
+            
+            return 1;
+        }
+
 
         //This bool will be used to indicate whether the user has "saved" the dice during a round, lok
         public bool isLocked { get; set; }

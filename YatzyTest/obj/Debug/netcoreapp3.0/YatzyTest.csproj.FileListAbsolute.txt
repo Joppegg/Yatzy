@@ -90,3 +90,8 @@ C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.cs
 C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.AssemblyInfoInputs.cache
 C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.AssemblyInfo.cs
 C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.csproj.CopyComplete
+C:\Users\jongr\source\repos\Yatzy\YatzyTest\bin\Debug\netcoreapp3.0\YatzyTest.pdb
+C:\Users\jongr\source\repos\Yatzy\YatzyTest\bin\Debug\netcoreapp3.0\Castle.Core.dll
+C:\Users\jongr\source\repos\Yatzy\YatzyTest\bin\Debug\netcoreapp3.0\Moq.dll
+C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.dll
+C:\Users\jongr\source\repos\Yatzy\YatzyTest\obj\Debug\netcoreapp3.0\YatzyTest.pdb
