@@ -21,7 +21,7 @@ namespace YatzyTest
 
             DiceHolder.AddDice();
 
-            AssertEquals(6, DiceHolderTest.GetDice().Count);
+            Assert.AreEqual(6, DiceHolderTest.GetDice().Count);
 
 
 
