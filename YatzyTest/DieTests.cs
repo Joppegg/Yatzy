@@ -24,7 +24,6 @@ namespace YatzyTest
 
             //Mock random should return the input
             mockRandom.Setup(x => x.Next(1,7)).Returns(input);
-
             Die die = new Die(mockRandom.Object);
 
             //Act
@@ -33,5 +32,28 @@ namespace YatzyTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+       
+        //Test-method, not using mocking
+        [Test]
+        public void Roll_WithSeed15ShouldReturnSameNumber()
+        {
+            //Gets a random number and expects it. No mocking   .
+            Random testRandom = new Random(15);
+            int expected = testRandom.Next(1, 7);
+
+     
+            Die die = new Die(new Random(15));
+            int actual = die.Roll();
+            Assert.AreEqual(expected, actual);
+
+
+
+
+        }
+
+
+
+
     }
 }
