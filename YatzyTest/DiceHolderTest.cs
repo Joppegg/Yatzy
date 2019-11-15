@@ -63,9 +63,8 @@ namespace YatzyTest
 
             mockDie.Verify(x => x.Roll(), Times.Never());
 
-
-
         }
+
 
 
 
