@@ -10,7 +10,6 @@ namespace YatzyTest
     {
 
         [Test]
-  
         [TestCase(1, 1)]
         [TestCase(2, 2)]
         [TestCase(3, 3)]
@@ -45,14 +44,10 @@ namespace YatzyTest
             Random testRandom = new Random(inputSeed);
             int expected = testRandom.Next(1, 7);
 
-     
             Die die = new Die(new Random(inputSeed));
             int actual = die.Roll();
 
             Assert.AreEqual(expected, actual);
-
-
-
 
         }
 
