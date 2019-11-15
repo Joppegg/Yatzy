@@ -34,17 +34,21 @@ namespace YatzyTest
         }
 
        
-        //Test-method, not using mocking
+        //Integration-testing, giving different seeds to random.
         [Test]
-        public void Roll_WithSeed15ShouldReturnSameNumber()
+        [TestCase(15)]
+        [TestCase(279)]
+        [TestCase(4850)]
+        public void Roll_WithSameSeedShouldReturnSameNumber(int inputSeed)
         {
             //Gets a random number and expects it. No mocking   .
-            Random testRandom = new Random(15);
+            Random testRandom = new Random(inputSeed);
             int expected = testRandom.Next(1, 7);
 
      
-            Die die = new Die(new Random(15));
+            Die die = new Die(new Random(inputSeed));
             int actual = die.Roll();
+
             Assert.AreEqual(expected, actual);
 
 
