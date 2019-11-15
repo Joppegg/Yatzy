@@ -31,9 +31,44 @@ namespace YatzyTest
 
             Assert.AreEqual(expected, sut.DiceList.Count);
 
+        }
+
+
+        [Test]
+        [TestCase(5)]
+        public void RollDice_ShouldCallRollDieOnEveryDie(int input)
+        {
+
+            List<Die> diceList = new List<Die>();
+            for (int i = 0; i < input; i++)
+            {
+                Mock<Die> mockDie = new Mock<Die>();
+                mockDie.Setup(x=> x.Roll()).Returns(1);
+                diceList.Add(mockDie.Object);
+                
+            }
+            var sut = new DiceHolder(diceList);
+            sut.RollDice();
+
+            foreach (Die die in sut.DiceList)
+            {
+                Assert.AreEqual(die.Value, 1);
+            }
+   
+
+   
+
+
+
+
+
+
+
+
 
 
         }
+
 
     }
 }
