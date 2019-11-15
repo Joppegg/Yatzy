@@ -35,53 +35,18 @@ namespace YatzyTest
 
 
         [Test]
-        [TestCase(5)]
-        public void RollDice_ShouldCallRollDieOnEveryDie(int input)
+        public void RollDice_ShouldCallDieMethod()
         {
+            
             List<IDie> diceList = new List<IDie>();
-
             Mock<IDie> mockDie = new Mock<IDie>();
-            mockDie.Setup(x => x.Roll()).Returns(1);
-
+     
             diceList.Add(mockDie.Object);
 
             var sut = new DiceHolder(diceList);
             sut.RollDice();
 
             mockDie.Verify(x=> x.Roll(), Times.Once());
-
-            /**
-
-            List<Die> diceList = new List<Die>();
-            for (int i = 0; i < input; i++)
-            {
-                Mock<Die> mockDie = new Mock<Die>();
-                mockDie.Setup(x=> x.Roll()).Returns(1);
-                diceList.Add(mockDie.Object);
-                
-            }
-            var sut = new DiceHolder(diceList);
-            sut.RollDice();
-
-            Mock.Get(diceList).Verify(x=> )
-            
-            foreach (Die die in sut.DiceList)
-            {
-                
-                Assert.AreEqual(die.Value, 1);
-            }
-   **/
-
-
-
-
-
-
-
-
-
-
-
 
         }
 
