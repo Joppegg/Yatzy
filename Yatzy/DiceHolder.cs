@@ -19,7 +19,9 @@ namespace Yatzy
         {
            foreach (IDie d in DiceList)
             {
+                if (!d.IsLocked) { 
                 d.Roll();
+                }
             }
         }
 
