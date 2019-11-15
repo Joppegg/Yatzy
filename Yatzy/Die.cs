@@ -8,7 +8,9 @@ namespace Yatzy
     {
         Random _random;
 
-
+        public Die(){
+            _random = new Random();
+        }
         public Die(Random random)
         {
             _random = random;

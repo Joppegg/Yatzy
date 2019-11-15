@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,15 +14,19 @@ namespace YatzyTest
     {
 
         [Test]
-        public void AddDice_ShouldCreateSixDieObject()
+        public void GetDice_ShouldReturnFiveDice()
         {
-            int expected = 6;
+            int expected = 5;
+            List<Die> diceList = new List<Die>();
+            for (int i = 0; i<5; i++)
+            {
+                Mock<Die> mockDie = new Mock<Die>();
+                diceList.Add(mockDie.Object);
+            }
+            var sut = new DiceHolder(diceList);
+         
 
-            var sut = new DiceHolder();
-
-            sut.AddDice();
-
-            Assert.AreEqual(6, sut.DiceList.Count);
+            Assert.AreEqual(expected, sut.DiceList.Count);
 
 
 

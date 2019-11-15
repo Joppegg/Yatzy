@@ -10,11 +10,8 @@ namespace Yatzy
         public List<Die> DiceList { get; set; }
 
 
-        public void AddDice()
-        {
-   
-            throw new NotImplementedException();
-        }
+
+
 
 
     }
