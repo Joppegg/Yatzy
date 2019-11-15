@@ -16,8 +16,8 @@ namespace Yatzy
 
         public int Roll()
         {
-            Value = _random.Next(1, 7);
-            return Value;
+            int roll = _random.Next(1, 1);
+            return roll;
         }
 
 
