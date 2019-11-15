@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Yatzy;
 
 namespace YatzyTest
 {
@@ -16,9 +17,9 @@ namespace YatzyTest
         {
             int expected = 6;
 
-            var sut = new DiceHolderTest();
+            var sut = new DiceHolder();
 
-            DiceHolderTest.AddDice();
+            DiceHolder.AddDice();
 
             AssertEquals(6, DiceHolderTest.GetDice().Count);
 
