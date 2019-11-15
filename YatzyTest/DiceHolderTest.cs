@@ -19,15 +19,13 @@ namespace YatzyTest
 
             var sut = new DiceHolder();
 
-            DiceHolder.AddDice();
+            sut.AddDice();
 
-            Assert.AreEqual(6, DiceHolderTest.GetDice().Count);
+            Assert.AreEqual(6, sut.DiceList.Count);
 
 
 
         }
-        
-
 
     }
 }
