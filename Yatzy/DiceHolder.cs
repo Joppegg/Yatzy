@@ -9,7 +9,11 @@ namespace Yatzy
     {
         public List<Die> DiceList { get; set; }
 
+        public DiceHolder(List<Die> diceList)
+        {
+            DiceList = diceList;
 
+        }
 
 
 
