@@ -35,7 +35,7 @@ namespace YatzyTest
 
 
         [Test]
-        public void RollDice_ShouldCallDieMethod()
+        public void RollDice_ShouldCallDieRollMethodOnce()
         {
             
             List<IDie> diceList = new List<IDie>();
@@ -47,8 +47,28 @@ namespace YatzyTest
             sut.RollDice();
 
             mockDie.Verify(x=> x.Roll(), Times.Once());
+        }
+
+        [Test]
+        public void RollDice_ShouldOnlyRollUnlockedDice()
+        {
+            List<IDie> diceList = new List<IDie>();
+            Mock<IDie> mockDie = new Mock<IDie>();
+
+            mockDie.Setup(x => x.IsLocked).Returns(true);
+            diceList.Add(mockDie.Object);
+
+            var sut = new DiceHolder(diceList);
+            sut.RollDice();
+
+            mockDie.Verify(x => x.Roll(), Times.Never());
+
+
 
         }
+
+
+
 
 
     }

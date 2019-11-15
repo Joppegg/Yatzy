@@ -7,7 +7,7 @@ namespace Yatzy
     public class Die : IDie
     {
         Random _random;
-
+        bool isLocked;
         public Die(){
             _random = new Random();
         }
@@ -22,14 +22,15 @@ namespace Yatzy
 
         //Roll method - returns a random value 1-6.
 
-        public virtual int Roll()
+        public  int Roll()
         {
              Value = _random.Next(1, 7);
             return Value;
         }
 
         //This bool will be used to indicate whether the user has "saved" the dice during a round, lok
-        public bool isLocked { get; set; }
+
+        public bool IsLocked { get; set; }
 
 
 

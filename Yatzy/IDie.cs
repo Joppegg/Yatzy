@@ -9,5 +9,6 @@ namespace Yatzy
 
         public int Roll();
 
+        public bool IsLocked { get; set; }
     }
 }
