@@ -20,7 +20,7 @@ namespace YatzyTest
         public void GetDiceList_ShouldReturnAllDice(int input, int expected)
         {
          
-            List<Die> diceList = new List<Die>();
+            List<IDie> diceList = new List<IDie>();
             for (int i = 0; i<input; i++)
             {
                 Mock<Die> mockDie = new Mock<Die>();
@@ -38,9 +38,9 @@ namespace YatzyTest
         [TestCase(5)]
         public void RollDice_ShouldCallRollDieOnEveryDie(int input)
         {
-            List<Die> diceList = new List<Die>();
+            List<IDie> diceList = new List<IDie>();
 
-            Mock<Die> mockDie = new Mock<Die>();
+            Mock<IDie> mockDie = new Mock<IDie>();
             mockDie.Setup(x => x.Roll()).Returns(1);
 
             diceList.Add(mockDie.Object);

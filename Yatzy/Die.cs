@@ -22,7 +22,7 @@ namespace Yatzy
 
         //Roll method - returns a random value 1-6.
 
-        public virtual int Roll()
+        public int Roll()
         {
              Value = _random.Next(1, 7);
             return Value;

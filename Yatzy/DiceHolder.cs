@@ -7,9 +7,9 @@ namespace Yatzy
 {
     public class DiceHolder
     {
-        public List<Die> DiceList { get; set; }
+        public List<IDie> DiceList { get; set; }
 
-        public DiceHolder(List<Die> diceList)
+        public DiceHolder(List<IDie> diceList)
         {
             DiceList = diceList;
 
@@ -17,7 +17,7 @@ namespace Yatzy
 
         public void RollDice()
         {
-           foreach (Die d in DiceList)
+           foreach (IDie d in DiceList)
             {
                 d.Roll();
             }

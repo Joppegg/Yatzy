@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Yatzy
 {
-    interface IDie
+    public interface IDie
     { 
 
         public int Roll();
