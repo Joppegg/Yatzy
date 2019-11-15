@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Yatzy
 {
-    public class Die
+    public class Die : IDie
     {
         Random _random;
 
@@ -22,7 +22,7 @@ namespace Yatzy
 
         //Roll method - returns a random value 1-6.
 
-        public int Roll()
+        public virtual int Roll()
         {
              Value = _random.Next(1, 7);
             return Value;

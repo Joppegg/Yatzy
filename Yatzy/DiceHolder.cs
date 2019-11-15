@@ -15,6 +15,14 @@ namespace Yatzy
 
         }
 
+        public void RollDice()
+        {
+           foreach (Die d in DiceList)
+            {
+                d.Roll();
+            }
+        }
+
 
 
 

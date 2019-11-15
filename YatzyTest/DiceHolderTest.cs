@@ -48,7 +48,7 @@ namespace YatzyTest
             var sut = new DiceHolder(diceList);
             sut.RollDice();
 
-            mockDie.Verify(x=> x.Roll(), Times.Once));
+            mockDie.Verify(x=> x.Roll(), Times.Once());
 
             /**
 
