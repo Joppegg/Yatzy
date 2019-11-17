@@ -8,7 +8,8 @@ namespace Yatzy
     { 
 
         public int Roll();
-
+        public int Value { get; set; }
         public bool IsLocked { get; set; }
+
     }
 }
