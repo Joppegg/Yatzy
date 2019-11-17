@@ -38,5 +38,25 @@ namespace Yatzy
         }
 
 
+        public int CalculateThreeOfAKind()
+        {
+            int scoreToBeMultipliedByThree = 0;
+
+            for (int i=1; i<=6; i++)
+            {
+                int count = 0;
+                foreach (IDie d in _diceHolder.DiceList)
+                {
+                    if (d.Value == i)
+                        count++;
+                }
+                if (count >= 3)
+                    scoreToBeMultipliedByThree = i;
+            }
+
+            return scoreToBeMultipliedByThree * 3;
+        }
+
+
     }
 }

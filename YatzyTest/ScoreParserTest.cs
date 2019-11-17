@@ -123,7 +123,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
-            Assert.AreEqual(expectedScoring, sut.CalculateThreeOfAKind);
+            Assert.AreEqual(expectedScoring, sut.CalculateThreeOfAKind());
 
 
         }
