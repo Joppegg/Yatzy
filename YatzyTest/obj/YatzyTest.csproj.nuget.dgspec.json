@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[3.13.0, )"
             },
+            "OpenCover": {
+              "target": "Package",
+              "version": "[4.7.922, )"
+            },
             "nunit": {
               "target": "Package",
               "version": "[3.12.0, )"
@@ -120,6 +124,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "OpenCover": {
+              "target": "Package",
+              "version": "[4.7.922, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

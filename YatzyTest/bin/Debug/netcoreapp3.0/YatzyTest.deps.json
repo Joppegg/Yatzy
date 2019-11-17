@@ -11,6 +11,7 @@
           "Microsoft.NET.Test.Sdk": "16.2.0",
           "Moq": "4.13.1",
           "NUnit3TestAdapter": "3.13.0",
+          "OpenCover": "4.7.922",
           "Yatzy": "1.0.0",
           "NUnit": "3.12.0"
         },
@@ -443,6 +444,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "OpenCover/4.7.922": {},
       "runtime.native.System/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -1036,6 +1038,9 @@
         }
       },
       "Yatzy/1.0.0": {
+        "dependencies": {
+          "OpenCover": "4.7.922"
+        },
         "runtime": {
           "Yatzy.dll": {}
         }
@@ -1159,6 +1164,13 @@
       "sha512": "sha512-9OlA81APTyR/tNkapK2a2dlz4jFra7/Bm1eYT1P1lIq2cJv4OYtWD5uHj3XsO1dz3btiwbIFrWBtZNr/ebRhSw==",
       "path": "nunit3testadapter/3.13.0",
       "hashPath": "nunit3testadapter.3.13.0.nupkg.sha512"
+    },
+    "OpenCover/4.7.922": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mwqq3r8cHj7qazNzWp1K9zmU15amC9bzMvFK83zM4D+ATSN/IOkJGZh6kEvXnTVJjl6LN6U/4QCdRHxulAISuA==",
+      "path": "opencover/4.7.922",
+      "hashPath": "opencover.4.7.922.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",

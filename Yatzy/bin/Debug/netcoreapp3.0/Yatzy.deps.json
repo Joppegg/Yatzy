@@ -7,10 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v3.0": {
       "Yatzy/1.0.0": {
+        "dependencies": {
+          "OpenCover": "4.7.922"
+        },
         "runtime": {
           "Yatzy.dll": {}
         }
-      }
+      },
+      "OpenCover/4.7.922": {}
     }
   },
   "libraries": {
@@ -18,6 +22,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "OpenCover/4.7.922": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mwqq3r8cHj7qazNzWp1K9zmU15amC9bzMvFK83zM4D+ATSN/IOkJGZh6kEvXnTVJjl6LN6U/4QCdRHxulAISuA==",
+      "path": "opencover/4.7.922",
+      "hashPath": "opencover.4.7.922.nupkg.sha512"
     }
   }
 }

@@ -6,4 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="OpenCover" Version="4.7.922" />
+  </ItemGroup>
+
 </Project>

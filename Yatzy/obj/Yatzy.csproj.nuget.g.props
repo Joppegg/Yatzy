@@ -12,4 +12,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgOpenCover Condition=" '$(PkgOpenCover)' == '' ">C:\Users\jongr\.nuget\packages\opencover\4.7.922</PkgOpenCover>
+  </PropertyGroup>
 </Project>
