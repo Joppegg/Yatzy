@@ -106,6 +106,15 @@ namespace Yatzy
 
         }
 
+        public int CalculateChance()
+        {
+            
+            foreach (IDie d in _diceHolder.DiceList)
+            {
+                _currentScore += d.Value;
+            }
+            return _currentScore;
+        }
         //Checks if there is a yatzy
 
 
