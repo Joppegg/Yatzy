@@ -13,16 +13,24 @@ namespace Yatzy
     */
     public class ScoreParser
     {
+        private int _currentScore;
         public IDiceHolder _diceHolder{ get; set; }
 
         public ScoreParser(IDiceHolder diceHolder)
         {
             _diceHolder = diceHolder;
+            _currentScore = 0;
         }
 
         public int CalculateOnes()
         {
-            return 5;
+            
+           foreach (IDie d in _diceHolder.DiceList)
+            {
+                _currentScore += d.Value;
+            }
+
+            return _currentScore;
         }
 
     }
