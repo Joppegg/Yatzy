@@ -37,7 +37,11 @@ namespace Yatzy
             return _currentScore;
         }
 
-
+        /*
+        *This method loops through the dicelist and checks if a number 1-6 is occuring 3 or more times.
+        *It then returns that number times 3. If no number occurs 3 or more times it will multiply by 0, thus returning a zero to be scored.
+        *
+        */
         public int CalculateThreeOfAKind()
         {
             int scoreToBeMultipliedByThree = 0;

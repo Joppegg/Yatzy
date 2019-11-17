@@ -93,6 +93,8 @@ namespace YatzyTest
 
         [Test]
         [TestCase("ThreeOfAKind", 2, 2, 2, 4, 1, 6)]
+        [TestCase("ThreeOfAKind", 5, 5, 1, 5, 0, 15)]
+        [TestCase("ThreeOfAKind", 1, 2, 3, 4, 5, 0)]
         public void Calculate_ShouldCalculateThreeOfAKind (string chosenScore, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
             //Create mockdice
