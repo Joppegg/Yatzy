@@ -56,6 +56,10 @@ namespace Yatzy
                 }
                 if (count >= numberOfAKind)
                     scoreToBeMultipliedByThree = i;
+                if (count == 5)
+                {
+                    return 50;
+                }
             }
             return scoreToBeMultipliedByThree * numberOfAKind;
         }
@@ -100,13 +104,9 @@ namespace Yatzy
 
             return points;
 
-
-
-
-
-
-
         }
+
+        //Checks if there is a yatzy
 
 
 
