@@ -46,7 +46,7 @@ namespace YatzyTest
             Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new ScoreParser(mockDiceHolder.Object, input);
             Assert.AreEqual(sut.CalculateOnes(), expected);
         }
 
