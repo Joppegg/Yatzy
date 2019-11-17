@@ -62,7 +62,7 @@ namespace Yatzy
 
         public int CalculateFullHouse()
         {
-            int sum = 0;
+          
             bool occursTwoTimes = false;
             bool occursThreeTimes = false;
             for (int i = 1; i <= 6; i++)
@@ -79,12 +79,20 @@ namespace Yatzy
                     occursThreeTimes = true;
             }
 
-            sum = occursThreeTimes && occursTwoTimes ? 25 : 0;
-            return sum;
+            return occursThreeTimes && occursTwoTimes ? 25 : 0;
+            
+        }
 
-
+        public int CalculateSmallStraight()
+        {
+            throw new NotImplementedException();
 
         }
+
+
+
+
+
 
 
     }
