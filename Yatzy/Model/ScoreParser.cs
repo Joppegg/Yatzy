@@ -25,7 +25,7 @@ namespace Yatzy
             _chosenScore = chosenScore;
         }
 
-        public int CalculateOnes()
+        public int CalculateSingleNumbers()
         {
             
            foreach (IDie d in _diceHolder.DiceList)

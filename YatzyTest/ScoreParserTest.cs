@@ -47,7 +47,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object, input);
-            Assert.AreEqual(sut.CalculateOnes(), expected);
+            Assert.AreEqual(sut.CalculateSingleNumbers(), expected);
         }
 
 
@@ -88,7 +88,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object, correctInput);
-            Assert.AreEqual(expected, sut.CalculateOnes());
+            Assert.AreEqual(expected, sut.CalculateSingleNumbers());
         }
 
 
