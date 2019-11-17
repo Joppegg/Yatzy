@@ -57,7 +57,6 @@ namespace Yatzy
                 if (count >= 3)
                     scoreToBeMultipliedByThree = i;
             }
-
             return scoreToBeMultipliedByThree * 3;
         }
 

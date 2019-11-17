@@ -92,10 +92,10 @@ namespace YatzyTest
 
 
         [Test]
-        [TestCase("ThreeOfAKind", 2, 2, 2, 4, 1, 6)]
-        [TestCase("ThreeOfAKind", 5, 5, 1, 5, 0, 15)]
-        [TestCase("ThreeOfAKind", 1, 2, 3, 4, 5, 0)]
-        public void Calculate_ShouldCalculateThreeOfAKind (string chosenScore, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        [TestCase(2, 2, 2, 4, 1, 6)]
+        [TestCase( 5, 5, 1, 5, 0, 15)]
+        [TestCase( 1, 2, 3, 4, 5, 0)]
+        public void Calculate_ShouldCalculateThreeOfAKind (int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
             //Create mockdice
             Mock<IDie> mockDie1 = new Mock<IDie>();
@@ -120,13 +120,11 @@ namespace YatzyTest
                 mockDie5.Object,
             };
 
-
             Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateThreeOfAKind());
-
 
         }
 
