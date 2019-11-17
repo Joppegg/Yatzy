@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Yatzy.Interfaces;
 
 namespace Yatzy
 {
@@ -12,7 +13,17 @@ namespace Yatzy
     */
     public class ScoreParser
     {
+        public IDiceHolder _diceHolder{ get; set; }
 
+        public ScoreParser(IDiceHolder diceHolder)
+        {
+            _diceHolder = diceHolder;
+        }
+
+        public int CalculateOnes()
+        {
+            return 5;
+        }
 
     }
 }

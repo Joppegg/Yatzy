@@ -7,7 +7,7 @@ namespace Yatzy
     public class Die : IDie
     {
         Random _random;
-        bool isLocked;
+   
         public Die(){
             _random = new Random();
         }

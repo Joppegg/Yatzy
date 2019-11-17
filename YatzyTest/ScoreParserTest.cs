@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Yatzy;
+using Yatzy.Interfaces;
 
 namespace YatzyTest
 {
 
     [TestFixture]
-    class ScoreParserTest
+    public class ScoreParserTest
     {
 
         //If ones can be scored, should return true.
@@ -29,6 +30,8 @@ namespace YatzyTest
             mockDie4.Setup(x => x.Value).Returns(1);
             mockDie5.Setup(x => x.Value).Returns(1);
 
+            int expected = 5;
+
             //Create a dicelist
             List<IDie> diceList = new List<IDie>
             {
@@ -40,12 +43,11 @@ namespace YatzyTest
 
             };
 
-            Mock<DiceHolder> mockDiceHolder = new Mock<DiceHolder>();
-            mockDie2.Setup(x => diceList).Returns(diceList);
+            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
+            mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
-            var sut = new ScoreParser(mockDiceHolder);
-
-            Assert.AreEqual(sut.CalculateOnes());
+            var sut = new ScoreParser(mockDiceHolder.Object);
+            Assert.AreEqual(sut.CalculateOnes(), expected);
          
 
 

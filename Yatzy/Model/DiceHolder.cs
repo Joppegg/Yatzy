@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Yatzy.Interfaces;
 
 namespace Yatzy
 {
-    public class DiceHolder
+    public class DiceHolder : IDiceHolder
     {
         public List<IDie> DiceList { get; set; }
 

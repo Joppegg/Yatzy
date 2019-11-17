@@ -8,3 +8,4 @@ C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.AssemblyIn
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.AssemblyInfo.cs
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.dll
 C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.pdb
+C:\Users\jongr\source\repos\Yatzy\Yatzy\obj\Debug\netcoreapp3.0\Yatzy.csprojAssemblyReference.cache
