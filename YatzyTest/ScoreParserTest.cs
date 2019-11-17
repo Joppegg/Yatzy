@@ -129,7 +129,7 @@ namespace YatzyTest
             Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
 
         }
-        [TestCase(3, 3, 5, 5, 5, 21)]
+        [TestCase(3, 3, 5, 5, 5, 25)]
         [TestCase(3, 2, 5, 5, 5, 0)]
         [Test]
         public void Calculate_ShouldCalculateFullHouse(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)

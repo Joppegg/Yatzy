@@ -60,6 +60,32 @@ namespace Yatzy
             return scoreToBeMultipliedByThree * numberOfAKind;
         }
 
+        public int CalculateFullHouse()
+        {
+            int sum = 0;
+            bool occursTwoTimes = false;
+            bool occursThreeTimes = false;
+            for (int i = 1; i <= 6; i++)
+            {
+                int count = 0;
+                foreach (IDie d in _diceHolder.DiceList)
+                {
+                    if (d.Value == i)
+                        count++;
+                }
+                if (count == 2)
+                    occursTwoTimes = true;
+                if (count == 3)
+                    occursThreeTimes = true;
+            }
+
+            sum = occursThreeTimes && occursTwoTimes ? 25 : 0;
+            return sum;
+
+
+
+        }
+
 
     }
 }
