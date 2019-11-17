@@ -45,8 +45,8 @@ namespace YatzyTest
             Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
-            var sut = new ScoreParser(mockDiceHolder.Object, input);
-            Assert.AreEqual(sut.CalculateSingleNumbers(), expected);
+            var sut = new ScoreParser(mockDiceHolder.Object);
+            Assert.AreEqual(sut.CalculateSingleNumbers(input), expected);
         }
 
 
@@ -86,12 +86,14 @@ namespace YatzyTest
             Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
-            var sut = new ScoreParser(mockDiceHolder.Object, correctInput);
-            Assert.AreEqual(expected, sut.CalculateSingleNumbers());
+            var sut = new ScoreParser(mockDiceHolder.Object);
+            Assert.AreEqual(expected, sut.CalculateSingleNumbers(correctInput));
         }
+
+
         [Test]
-        [TestCase("OnePair",2, 2, 4, 4, 1, 8)]
-        public void Calculate_ShouldCalculateMaxScoreForOnePair(string chosenScore, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        [TestCase("ThreeOfAKind", 2, 2, 2, 4, 1, 6)]
+        public void Calculate_ShouldCalculateThreeOfAKind (string chosenScore, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
             //Create mockdice
             Mock<IDie> mockDie1 = new Mock<IDie>();
@@ -121,7 +123,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
-            Assert.AreEqual(expectedScoring, sut.CalculateOnePair);
+            Assert.AreEqual(expectedScoring, sut.CalculateThreeOfAKind);
 
 
         }

@@ -65,6 +65,10 @@ namespace YatzyTest
 
         }
 
+        [Test]
+        public void SortDice_ShouldSortDescending() {
+        }
+
 
 
 

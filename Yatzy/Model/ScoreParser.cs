@@ -14,28 +14,29 @@ namespace Yatzy
     public class ScoreParser
     {
         private int _currentScore;
-        private int _chosenScore;
+ 
         public IDiceHolder _diceHolder{ get; set; }
 
 
-        public ScoreParser(IDiceHolder diceHolder, int chosenScore)
+        public ScoreParser(IDiceHolder diceHolder)
         {
             _diceHolder = diceHolder;
             _currentScore = 0;
-            _chosenScore = chosenScore;
+           
         }
 
-        public int CalculateSingleNumbers()
+        public int CalculateSingleNumbers(int chosenScore)
         {
             
            foreach (IDie d in _diceHolder.DiceList)
             {
-                if (d.Value == _chosenScore)
+                if (d.Value == chosenScore)
                     _currentScore += d.Value;
             }
 
             return _currentScore;
         }
+
 
     }
 }
