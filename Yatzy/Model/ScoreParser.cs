@@ -83,7 +83,7 @@ namespace Yatzy
             
         }
 
-        public int CalculateSmallStraight()
+        public int CalculateStraight()
         {
             int points = 0;
             int[] diceArray = new int[5];
@@ -94,6 +94,9 @@ namespace Yatzy
             Array.Sort(diceArray);
             if (diceArray[0] == 1 && diceArray[1] == 2 && diceArray[2] == 3 && diceArray[3] == 4 && diceArray[4] == 5)
                 points = 15;
+
+            else if (diceArray[0] == 2 && diceArray[1] == 3 && diceArray[2] == 4 && diceArray[3] == 5 && diceArray[4] == 6)
+                points = 20;
 
             return points;
 

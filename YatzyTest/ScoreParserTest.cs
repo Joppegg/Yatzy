@@ -168,8 +168,10 @@ namespace YatzyTest
 
         [TestCase(1, 2, 4, 5, 3, 15)]
         [TestCase(3, 2, 4, 5, 5, 0)]
+        [TestCase(2, 3, 4, 5, 6, 20)]
+        [TestCase(3, 5, 6, 2, 4, 20)]
         [Test]
-        public void Calculate_ShouldCalculateSmallStraight(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        public void Calculate_ShouldCalculateStraight(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
 
 
@@ -201,7 +203,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
-            Assert.AreEqual(expectedScoring, sut.CalculateSmallStraight());
+            Assert.AreEqual(expectedScoring, sut.CalculateStraight());
 
 
         }
