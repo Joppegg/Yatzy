@@ -33,7 +33,11 @@ namespace Yatzy
 
         public void SaveScore(string scoreName, int scoreValue)
         {
+            if (!_scoreList.ContainsKey(scoreName))
+                     throw new InvalidOperationException(); 
+
             _scoreList[scoreName] = scoreValue;
+
         }
 
         public Dictionary<string, int> GetScoreList()
