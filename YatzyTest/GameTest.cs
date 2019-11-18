@@ -11,18 +11,19 @@ namespace YatzyTest
     {
 
         [Test]
-        public void SaveScore_ShouldSaveScoreInList()
+        [TestCase("Ones", 4, 4)]
+        [TestCase("ThreeOfAKind", 9, 9)]
+        [TestCase("Yatzy", 50, 50)]
+        public void SaveScore_ShouldSaveScoreInList(string scoringOption, int scoringInput, int expected)
         {
             //Arrange
-            string scoringOption = "Threes";
-            int score = 25;
             var sut = new Game();
 
             //Act
-            sut.SaveScore("Threes", 25);
+            sut.SaveScore(scoringOption, scoringInput);
 
             //Assert
-            Assert.AreEqual(score, sut.GetScoreList()[scoringOption]);
+            Assert.AreEqual(expected, sut.GetScoreList()[scoringOption]);
 
         }
 
