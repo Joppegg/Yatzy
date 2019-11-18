@@ -6,8 +6,11 @@ namespace Yatzy
 {
     public class Game
     {
+
+
         private Dictionary<string, int> _scoreList { get; set; }
         public bool IsGameFinished { get; set; }
+        public int RoundNumber { get; set; }
         public Game(Dictionary<string, int> scoreList)
         {
             _scoreList = scoreList;
@@ -37,6 +40,11 @@ namespace Yatzy
                      throw new InvalidOperationException(); 
 
             _scoreList[scoreName] = scoreValue;
+            RoundNumber++;
+            if (RoundNumber >= 13)
+            {
+                IsGameFinished = true;
+            }
 
         }
 
