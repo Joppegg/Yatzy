@@ -1,6 +1,6 @@
 ﻿namespace Yatzy
 {
-    partial class Form1
+    partial class GameView
     {
         /// <summary>
         ///  Required designer variable.
