@@ -30,15 +30,41 @@ namespace YatzyTest
         [Test]
         public void SaveScore_ShouldThrowExceptionOnUnknownScoreName()
         {
-            //Arrange
+       
             var sut = new Game();
             string scoringName = "This should not work";
             int score = 50;
-    
-
             Assert.Throws<InvalidOperationException>(() => sut.SaveScore(scoringName, score));
+        }
+
+        [Test]
+        public void IsGameFinished_ShouldReturnTrueIfThirteenScoresHaveBeenPlayed()
+        {
+            //Arrange
+            var sut = new Game();
+
+            //Act
+            sut.SaveScore("Ones", 1);
+            sut.SaveScore("Twos", 1);
+            sut.SaveScore("Threes", 1);
+            sut.SaveScore("Fours", 1);
+            sut.SaveScore("Fives", 1);
+            sut.SaveScore("Sixes", 1);
+            sut.SaveScore("ThreeOfAKind", 1);
+            sut.SaveScore("FourOfAKind", 1);
+            sut.SaveScore("FullHouse", 1);
+            sut.SaveScore("SmallStraight", 1);
+            sut.SaveScore("LargeStraight", 1);
+            sut.SaveScore("Yatzy", 1);
+            sut.SaveScore("Chance", 1);
+
+            //Assert
+            Assert.IsTrue(sut.IsGameFinished);
 
         }
+
+        
+
 
     }
 }

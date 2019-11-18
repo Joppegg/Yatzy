@@ -7,7 +7,7 @@ namespace Yatzy
     public class Game
     {
         private Dictionary<string, int> _scoreList { get; set; }
-        
+        public bool IsGameFinished { get; set; }
         public Game(Dictionary<string, int> scoreList)
         {
             _scoreList = scoreList;
