@@ -27,6 +27,18 @@ namespace YatzyTest
 
         }
 
+        [Test]
+        public void SaveScore_ShouldThrowExceptionOnUnknownScoreName()
+        {
+            //Arrange
+            var sut = new Game();
+            string scoringName = "This should not work";
+            int score = 50;
+    
+
+            Assert.Throws<InvalidOperationException>(() => sut.SaveScore(scoringName, score));
+
+        }
 
     }
 }
