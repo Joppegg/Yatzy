@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Yatzy
 {
-    public partial class Form1 : Form
+    public partial class GameView : Form
     {
-        public Form1()
+        public GameView()
         {
             InitializeComponent();
         }
