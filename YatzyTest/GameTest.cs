@@ -50,6 +50,8 @@ namespace YatzyTest
             sut.SaveScore("Fours", 1);
             sut.SaveScore("Fives", 1);
             sut.SaveScore("Sixes", 1);
+
+            Assert.IsFalse(sut.IsGameFinished);
             sut.SaveScore("ThreeOfAKind", 1);
             sut.SaveScore("FourOfAKind", 1);
             sut.SaveScore("FullHouse", 1);
