@@ -6,7 +6,7 @@ namespace Yatzy.Model
 {
     public class ScoreParserFactory
     {
-        public ScoreParser getScoreParser(string scoreParserType, DiceHolder diceHolder)
+        public ScoreParser GetScoreParser(string scoreParserType, DiceHolder diceHolder)
         {
 
             if (scoreParserType.Equals("FunScoreParser", StringComparison.InvariantCultureIgnoreCase)){

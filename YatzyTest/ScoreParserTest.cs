@@ -167,15 +167,13 @@ namespace YatzyTest
             Assert.AreEqual(expectedScoring, sut.CalculateFullHouse());
         }
 
-        [TestCase(1, 2, 4, 5, 3, 15)]
+        [TestCase(1, 2, 4, 5, 3, 25)]
         [TestCase(3, 2, 4, 5, 5, 0)]
-        [TestCase(2, 3, 4, 5, 6, 20)]
-        [TestCase(3, 5, 6, 2, 4, 20)]
+        [TestCase(2, 3, 4, 5, 6, 30)]
+        [TestCase(3, 5, 6, 2, 4, 30)]
         [Test]
         public void Calculate_ShouldCalculateStraight(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
-
-
             //Create mockdice
             Mock<IDie> mockDie1 = new Mock<IDie>();
             Mock<IDie> mockDie2 = new Mock<IDie>();
@@ -206,6 +204,8 @@ namespace YatzyTest
             Assert.AreEqual(expectedScoring, sut.CalculateStraight());
 
         }
+
+
         [TestCase(1, 2, 4, 5, 3, 15)]
         [TestCase(3, 2, 4, 5, 5, 19)]
         [TestCase(2, 3, 4, 5, 6, 20)]

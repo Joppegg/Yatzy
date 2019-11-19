@@ -10,6 +10,10 @@ namespace Yatzy
     {
         public List<IDie> DiceList { get; set; }
 
+        public DiceHolder()
+        {
+
+        }
         public DiceHolder(List<IDie> diceList)
         {
             DiceList = diceList;
