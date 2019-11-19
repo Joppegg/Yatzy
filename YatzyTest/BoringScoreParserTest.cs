@@ -34,12 +34,24 @@ namespace YatzyTest
         [TestCase(5, 3, 3, 3, 3, 3, 50)]
         public void Calculate_ShouldCalculateNOfAKind(int numberOfAkind, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
-
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
             var sut = new BoringScoreParser(mockDiceHolder.Object);
 
             Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
 
+        }
+        
+        // Check to see that choosing 3 of a kind, but having four dice of the same kind only multiplies the score by dice-value * nOfAKind
+        [Test]
+        [TestCase(3, 5, 5, 5, 5, 5, 15)]
+        [TestCase(4, 5, 5, 5, 5, 5, 20)]
+        [TestCase(5, 5, 5, 5, 5, 5, 50)]
+        public void Calculate_CalculateNOfAKindShouldOnlyMultiplyByCorrectScoring(int numberOfAkind, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        {
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            var sut = new BoringScoreParser(mockDiceHolder.Object);
+
+            Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
         }
 
 
