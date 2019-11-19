@@ -19,10 +19,9 @@ namespace YatzyTest
         {
             string typeOfParser = "FunScoreParser";
             ScoreParserFactory scoreParserFactory  = new ScoreParserFactory();
-
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
 
-            FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
+            IScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
             FunScoreParser expected = new FunScoreParser(mockDiceHolder.Object);
 
             actual.Should().NotBeNull();
@@ -37,9 +36,12 @@ namespace YatzyTest
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
 
-            FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
+            IScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
+            BoringScoreParser expected = new BoringScoreParser(mockDiceHolder.Object);
+
 
             actual.Should().NotBeNull();
+            actual.Should().BeEquivalentTo(expected);
 
         }
 

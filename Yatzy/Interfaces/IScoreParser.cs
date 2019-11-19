@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Yatzy.Interfaces
 {
-    interface IScoreParser
+    public interface IScoreParser
     {
         public int CalculateNOfAKind(int nOfAKind);
         public int CalculateSingleNumbers(int chosenScore);
