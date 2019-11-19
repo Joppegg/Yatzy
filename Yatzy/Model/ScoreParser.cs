@@ -11,7 +11,7 @@ namespace Yatzy
     * provided DiceHolder.As such, if the score is invalid (no dice is 5 for fives..) it will return 0.
     *
     */
-    public class ScoreParser
+    public class ScoreParser : IScoreParser
     {
         private int _currentScore;
  
@@ -97,10 +97,10 @@ namespace Yatzy
             }
             Array.Sort(diceArray);
             if (diceArray[0] == 1 && diceArray[1] == 2 && diceArray[2] == 3 && diceArray[3] == 4 && diceArray[4] == 5)
-                points = 15;
+                points = 25;
 
             else if (diceArray[0] == 2 && diceArray[1] == 3 && diceArray[2] == 4 && diceArray[3] == 5 && diceArray[4] == 6)
-                points = 20;
+                points = 30;
 
             return points;
 

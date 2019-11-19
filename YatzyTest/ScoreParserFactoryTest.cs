@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Yatzy.Model;
 
 namespace YatzyTest
 {
@@ -14,9 +15,9 @@ namespace YatzyTest
         {
             string typeOfParser = "Boring";
 
-            var ScoreParserFactory = new ScoreParserFactoryTest();
+            ScoreParserFactory scoreParserFactory  = new ScoreParserFactory();
 
-            var actual = ScoreParserFactory.createScoreParser(typeOfParser);
+            var actual = ScoreParserFactory.getScoreParser(typeOfParser) ;
 
             Assert.IsNotNull(actual);
            
