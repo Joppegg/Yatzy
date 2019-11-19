@@ -10,7 +10,7 @@ namespace YatzyTest
 
 
     [TestFixture]
-    class DiceHolderTest
+    class DiceHolderTest 
     {
 
         [Test]
@@ -66,7 +66,36 @@ namespace YatzyTest
         }
 
         [Test]
-        public void SortDice_ShouldSortDescending() {
+
+        [TestCase(1, 1, 1, 1, 1, 5)]
+        [TestCase(2, 4, 6, 6, 6, 24)]
+        public void GetScore_ShouldGetSumOfAllDice(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScore)
+        {
+            Mock<IDie> mockDie1 = new Mock<IDie>();
+            Mock<IDie> mockDie2 = new Mock<IDie>();
+            Mock<IDie> mockDie3 = new Mock<IDie>();
+            Mock<IDie> mockDie4 = new Mock<IDie>();
+            Mock<IDie> mockDie5 = new Mock<IDie>();
+
+            mockDie1.Setup(x => x.Value).Returns(inputDiceOne);
+            mockDie2.Setup(x => x.Value).Returns(inputDiceTwo);
+            mockDie3.Setup(x => x.Value).Returns(inputDiceThree);
+            mockDie4.Setup(x => x.Value).Returns(inputDiceFour);
+            mockDie5.Setup(x => x.Value).Returns(inputDiceFive);
+            //Create a dicelist
+            List<IDie> diceList = new List<IDie>
+            {
+                mockDie1.Object,
+                mockDie2.Object,
+                mockDie3.Object,
+                mockDie4.Object,
+                mockDie5.Object,
+            };
+
+            var sut = new DiceHolder(diceList);
+
+            Assert.AreEqual(expectedScore, sut.ShouldGetSumOfAllDice);
+
         }
 
 
