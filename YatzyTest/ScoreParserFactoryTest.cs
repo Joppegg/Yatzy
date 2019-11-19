@@ -25,11 +25,9 @@ namespace YatzyTest
             FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
             FunScoreParser expected = new FunScoreParser(mockDiceHolder.Object);
 
-
             actual.Should().NotBeNull();
             actual.Should().BeEquivalentTo(expected);
-  
-      
+ 
 
         }
         [Test]
@@ -40,7 +38,8 @@ namespace YatzyTest
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
 
             FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
-            Assert.IsNotNull(actual);
+
+            actual.Should().NotBeNull();
 
         }
 
