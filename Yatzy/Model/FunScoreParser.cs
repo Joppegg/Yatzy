@@ -45,8 +45,7 @@ namespace Yatzy
         */
         public int CalculateNOfAKind(int numberOfAKind)
         {
-            int score = 0;
-
+            
             for (int i=1; i<=6; i++)
             {
                 int count = 0;
@@ -61,10 +60,8 @@ namespace Yatzy
                     if (count == 5 && numberOfAKind == 5)
                         return 50; 
                 }
-
-    
             }
-            return score;
+            return 0;
         }
 
         public int CalculateFullHouse()
