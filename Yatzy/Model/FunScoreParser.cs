@@ -55,11 +55,11 @@ namespace Yatzy
                     if (d.Value == i)
                         count++;
                 }
-                if (count == 3)
+                if (count == 3 && numberOfAKind == 3)
                     score = 20;
-                if (count == 4)
+                if (count == 4 && numberOfAKind == 4)
                     score = 25;
-                if (count == 5)
+                if (count == 5 && numberOfAKind == 5)
                     score = 50;
     
             }
