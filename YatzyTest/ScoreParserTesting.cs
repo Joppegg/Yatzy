@@ -10,6 +10,8 @@ namespace YatzyTest
     
     public abstract class ScoreParserTesting
     {
+
+        //Helper method to set up Mock dies and Mock Diceholders, returning the preferred input.
         public Mock<IDiceHolder> GetMockDiceHolder(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive)
         {
             //Create mockdice

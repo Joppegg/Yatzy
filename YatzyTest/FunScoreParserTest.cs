@@ -70,10 +70,10 @@ namespace YatzyTest
 
         // The N of a kind method should detect how many times the chosen number is occurring and calculate the score accordingly.
         [Test]
-        [TestCase(4, 2, 2, 2, 2, 1, 8)]
-        [TestCase(4, 5, 5, 1, 5, 5, 20)]
+        [TestCase(4, 2, 2, 2, 2, 1, 25)]
+        [TestCase(4, 5, 5, 1, 5, 5, 25)]
         [TestCase(3, 2, 3, 4, 5, 1, 0)]
-        [TestCase(3, 3, 3, 3, 5, 1, 9)]
+        [TestCase(3, 3, 3, 3, 5, 1, 20)]
         [TestCase(5, 3, 3, 3, 3, 3, 50)]
         public void Calculate_ShouldCalculateNOfAKind (int numberOfAkind, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {

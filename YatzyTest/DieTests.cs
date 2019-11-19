@@ -40,7 +40,7 @@ namespace YatzyTest
         [TestCase(4850)]
         public void Roll_WithSameSeedShouldReturnSameNumber(int inputSeed)
         {
-            //Gets a random number and expects it. No mocking   .
+            //Gets a random number and expects it. No mocking   
             Random testRandom = new Random(inputSeed);
             int expected = testRandom.Next(1, 7);
 

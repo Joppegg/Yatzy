@@ -38,8 +38,9 @@ namespace Yatzy
         }
 
         /*
-        *This method loops through the dicelist and checks if a number 1-6 is occuring n
-        *It then returns that number times n. If no number occurs n or more times it will multiply by 0, thus returning a zero to be scored.
+        *This method loops through the dicelist and checks if a number 1-6 is occuring n times.
+        *Fun score is: 3 of a kind, 20  points. 4 of a kind, 25 points. Yatzy, 50 ppoints.
+  
         *
         */
         public int CalculateNOfAKind(int numberOfAKind)
