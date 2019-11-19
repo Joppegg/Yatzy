@@ -30,6 +30,16 @@ namespace Yatzy
             }
         }
 
+        public int GetSumOfAllDice()
+        {
+            int sum = 0;
+            foreach(IDie d in DiceList)
+            {
+                sum += d.Value;
+            }
+            return sum;
+        }
+
 
 
 

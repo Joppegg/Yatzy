@@ -94,7 +94,7 @@ namespace YatzyTest
 
             var sut = new DiceHolder(diceList);
 
-            Assert.AreEqual(expectedScore, sut.ShouldGetSumOfAllDice);
+            Assert.AreEqual(expectedScore, sut.GetSumOfAllDice());
 
         }
 
