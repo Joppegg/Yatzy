@@ -9,5 +9,6 @@ namespace Yatzy.Interfaces
         public List<IDie> DiceList { get; set; }
 
         public void RollDice();
+        public int GetSumOfAllDice();
     }
 }

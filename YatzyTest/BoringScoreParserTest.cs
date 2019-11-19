@@ -63,8 +63,9 @@ namespace YatzyTest
         {
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
-
+         
             var sut = new BoringScoreParser(mockDiceHolder.Object);
+            
 
             Assert.AreEqual(expectedScoring, sut.CalculateFullHouse());
         }

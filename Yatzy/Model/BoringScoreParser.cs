@@ -82,7 +82,7 @@ namespace Yatzy
                     occursThreeTimes = true;
             }
 
-            return occursThreeTimes && occursTwoTimes ? 25 : 0;
+            return occursThreeTimes && occursTwoTimes ? _diceHolder.GetSumOfAllDice() : 0;
 
         }
 

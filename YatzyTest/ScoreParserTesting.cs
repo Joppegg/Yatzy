@@ -35,9 +35,11 @@ namespace YatzyTest
                 mockDie4.Object,
                 mockDie5.Object,
             };
+            int totalSum = inputDiceOne + inputDiceTwo + inputDiceThree + inputDiceFour + inputDiceFive;
 
             Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
+            mockDiceHolder.Setup(x => x.GetSumOfAllDice()).Returns(totalSum);
             return mockDiceHolder;
         }
 
