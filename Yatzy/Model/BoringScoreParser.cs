@@ -64,10 +64,9 @@ namespace Yatzy
 
         public int CalculateFullHouse()
         {
-
             bool occursTwoTimes = false;
             bool occursThreeTimes = false;
-            int totalSum = 0;
+
             for (int i = 1; i <= 6; i++)
             {
                 int count = 0;
