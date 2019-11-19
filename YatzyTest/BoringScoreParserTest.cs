@@ -58,6 +58,7 @@ namespace YatzyTest
         [TestCase(3, 3, 5, 5, 5, 21)]
         [TestCase(3, 2, 5, 5, 5, 0)]
         [TestCase(4, 4, 4, 2, 2, 16)]
+        [TestCase(4, 4, 4, 4, 4, 0)]
         [Test]
         public void Calculate_ShouldCalculateFullHouse(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
@@ -71,7 +72,20 @@ namespace YatzyTest
         }
 
 
+        //Checks to see that the sum for small straight is 15, and large straight is 20.
+        [TestCase(1, 2, 4, 5, 3, 15)]
+        [TestCase(3, 2, 4, 5, 5, 0)]
+        [TestCase(2, 3, 4, 5, 6, 20)]
+        [TestCase(3, 5, 6, 2, 4, 20)]
+        [Test]
+        public void Calculate_ShouldCalculateStraight(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        {
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
+            var sut = new FunScoreParser(mockDiceHolder.Object);
+            Assert.AreEqual(expectedScoring, sut.CalculateStraight());
+
+        }
 
 
 
