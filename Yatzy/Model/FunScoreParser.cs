@@ -54,13 +54,14 @@ namespace Yatzy
                 {
                     if (d.Value == i)
                         count++;
+                    if (count == 3 && numberOfAKind == 3)
+                        return 20;
+                    if (count == 4 && numberOfAKind == 4)
+                        return 25;
+                    if (count == 5 && numberOfAKind == 5)
+                        return 50; 
                 }
-                if (count == 3 && numberOfAKind == 3)
-                    score = 20;
-                if (count == 4 && numberOfAKind == 4)
-                    score = 25;
-                if (count == 5 && numberOfAKind == 5)
-                    score = 50;
+
     
             }
             return score;
