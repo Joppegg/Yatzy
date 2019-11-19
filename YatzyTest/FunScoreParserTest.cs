@@ -10,7 +10,7 @@ namespace YatzyTest
 {
 
     [TestFixture]
-    public class ScoreParserTest : ScoreParserTesting
+    public class FunScoreParserTest : ScoreParserTesting
     {
 
         [Test]
@@ -21,7 +21,7 @@ namespace YatzyTest
         {
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(input, input, input, input, input);
 
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(sut.CalculateSingleNumbers(input), expected);
         }
 
@@ -63,7 +63,7 @@ namespace YatzyTest
             mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
 
           
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expected, sut.CalculateSingleNumbers(correctInput));
         }
 
@@ -79,7 +79,7 @@ namespace YatzyTest
         {
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
 
             Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
 
@@ -93,7 +93,7 @@ namespace YatzyTest
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
 
             Assert.AreEqual(expectedScoring, sut.CalculateFullHouse());
         }
@@ -107,7 +107,7 @@ namespace YatzyTest
         {
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateStraight());
 
         }
@@ -123,7 +123,7 @@ namespace YatzyTest
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
-            var sut = new ScoreParser(mockDiceHolder.Object);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateChance());
         }
         

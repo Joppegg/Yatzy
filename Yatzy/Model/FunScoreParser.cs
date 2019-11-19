@@ -11,14 +11,14 @@ namespace Yatzy
     * provided DiceHolder.As such, if the score is invalid (no dice is 5 for fives..) it will return 0.
     *
     */
-    public class ScoreParser : IScoreParser
+    public class FunScoreParser : IScoreParser
     {
         private int _currentScore;
  
         public IDiceHolder _diceHolder{ get; set; }
 
 
-        public ScoreParser(IDiceHolder diceHolder)
+        public FunScoreParser(IDiceHolder diceHolder)
         {
             _diceHolder = diceHolder;
             _currentScore = 0;

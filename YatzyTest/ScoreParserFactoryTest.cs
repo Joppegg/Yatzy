@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using FluentAssertions;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,23 +15,36 @@ namespace YatzyTest
     {
 
         [Test]
-        public void GetScoreParser_ShouldReturnScoreParser()
+        public void GetFunScoreParser_ShouldReturnFunScoreParser()
         {
             string typeOfParser = "FunScoreParser";
-
             ScoreParserFactory scoreParserFactory  = new ScoreParserFactory();
-
-
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
 
-            ScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
-            Assert.IsNotNull(actual);
-           
+            FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
+            FunScoreParser expected = new FunScoreParser(mockDiceHolder.Object);
 
-                
+
+            actual.Should().NotBeNull();
+            actual.Should().BeEquivalentTo(expected);
+  
+      
 
         }
+        [Test]
+        public void GetBoringScoreParser_ShouldReturnBoringScoreParser()
+        {
+            string typeOfParser = "BoringScoreParser";
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
+
+            FunScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
+            Assert.IsNotNull(actual);
+
+        }
+
+
 
 
     }

@@ -7,11 +7,11 @@ namespace Yatzy.Model
 {
     public class ScoreParserFactory
     {
-        public ScoreParser GetScoreParser(string scoreParserType, IDiceHolder diceHolder)
+        public FunScoreParser GetScoreParser(string scoreParserType, IDiceHolder diceHolder)
         {
 
             if (scoreParserType.Equals("FunScoreParser", StringComparison.InvariantCultureIgnoreCase)){
-                return new ScoreParser(diceHolder);
+                return new FunScoreParser(diceHolder);
             }
             return null;
         }
