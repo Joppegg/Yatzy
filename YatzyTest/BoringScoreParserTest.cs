@@ -30,13 +30,13 @@ namespace YatzyTest
         [TestCase(4, 2, 2, 2, 2, 1, 8)]
         [TestCase(4, 5, 5, 1, 5, 5, 20)]
         [TestCase(3, 2, 3, 4, 5, 1, 0)]
-        [TestCase(3, 3, 3, 3, 5, 1, 12)]
+        [TestCase(3, 3, 3, 3, 5, 1, 9)]
         [TestCase(5, 3, 3, 3, 3, 3, 50)]
         public void Calculate_ShouldCalculateNOfAKind(int numberOfAkind, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
 
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
-            var sut = new FunScoreParser(mockDiceHolder.Object);
+            var sut = new BoringScoreParser(mockDiceHolder.Object);
 
             Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
 
