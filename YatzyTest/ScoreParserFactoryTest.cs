@@ -10,7 +10,7 @@ using Yatzy.Model;
 namespace YatzyTest
 {
     [TestFixture]
-    class ScoreParserFactoryTest
+    class ScoreParserFactoryTest : ScoreParserTesting
     {
 
         [Test]
@@ -20,24 +20,10 @@ namespace YatzyTest
 
             ScoreParserFactory scoreParserFactory  = new ScoreParserFactory();
 
-            //Create mockdice
-            Mock<IDie> mockDie1 = new Mock<IDie>();
-            Mock<IDie> mockDie2 = new Mock<IDie>();
-            Mock<IDie> mockDie3 = new Mock<IDie>();
-            Mock<IDie> mockDie4 = new Mock<IDie>();
-            Mock<IDie> mockDie5 = new Mock<IDie>();
 
-            //Create a dicelist
-            List<IDie> diceList = new List<IDie>
-            {
-                mockDie1.Object,
-                mockDie2.Object,
-                mockDie3.Object,
-                mockDie4.Object,
-                mockDie5.Object,
-            };
 
-            Mock<DiceHolder> mockDiceHolder = new Mock<DiceHolder>();
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(1, 2, 3, 4, 5);
+
             ScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
             Assert.IsNotNull(actual);
            
