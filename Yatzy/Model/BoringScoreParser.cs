@@ -57,10 +57,7 @@ namespace Yatzy
                         return 50;
                     if (count == numberOfAKind)
                         return i * numberOfAKind;
-                
-                     
                 }
-      
             }
             return 0;
         }

@@ -85,6 +85,19 @@ namespace YatzyTest
 
         }
 
+        // Check to see that choosing 3 of a kind, but having four dice of the same kind only multiplies the score by dice-value * nOfAKind
+        [Test]
+        [TestCase(3, 5, 5, 5, 5, 5, 20)]
+        [TestCase(4, 5, 5, 5, 5, 5, 25)]
+        [TestCase(5, 5, 5, 5, 5, 5, 50)]
+        public void Calculate_CalculateNOfAKindShouldOnlyMultiplyByCorrectScoring(int numberOfAkind, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        {
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            var sut = new FunScoreParser(mockDiceHolder.Object);
+
+            Assert.AreEqual(expectedScoring, sut.CalculateNOfAKind(numberOfAkind));
+        }
+
         [TestCase(3, 3, 5, 5, 5, 25)]
         [TestCase(3, 2, 5, 5, 5, 0)]
         [Test]
