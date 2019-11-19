@@ -82,14 +82,10 @@ namespace YatzyTest
         {
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
-            var sut = new FunScoreParser(mockDiceHolder.Object);
+            var sut = new BoringScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateStraight());
 
         }
-
-
-
-
 
 
 
@@ -132,6 +128,19 @@ namespace YatzyTest
 
 
 
+        [TestCase(1, 2, 4, 5, 3, 15)]
+        [TestCase(3, 2, 4, 5, 5, 19)]
+        [TestCase(2, 3, 4, 5, 6, 20)]
+        [TestCase(5, 5, 5, 5, 5, 25)]
+        [Test]
+        public void Calculate_ShouldCalculateChance(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
+        {
+
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+
+            var sut = new BoringScoreParser(mockDiceHolder.Object);
+            Assert.AreEqual(expectedScoring, sut.CalculateChance());
+        }
 
 
 
