@@ -19,31 +19,7 @@ namespace YatzyTest
         [TestCase(2, 10)]
         public void Calculate_ShouldReturnScoreForSelectingOneToSix(int input, int expected)
         {
-            //Create mockdice
-            Mock<IDie> mockDie1 = new Mock<IDie>();
-            Mock<IDie> mockDie2 = new Mock<IDie>();
-            Mock<IDie> mockDie3 = new Mock<IDie>();
-            Mock<IDie> mockDie4 = new Mock<IDie>();
-            Mock<IDie> mockDie5 = new Mock<IDie>();
-
-            mockDie1.Setup(x => x.Value).Returns(input);
-            mockDie2.Setup(x => x.Value).Returns(input);
-            mockDie3.Setup(x => x.Value).Returns(input);
-            mockDie4.Setup(x => x.Value).Returns(input);
-            mockDie5.Setup(x => x.Value).Returns(input);
-
-            //Create a dicelist
-            List<IDie> diceList = new List<IDie>
-            {
-                mockDie1.Object,
-                mockDie2.Object,
-                mockDie3.Object,
-                mockDie4.Object,
-                mockDie5.Object,
-            };
-
-            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
-            mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(input, input, input, input, input);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(sut.CalculateSingleNumbers(input), expected);
@@ -129,31 +105,7 @@ namespace YatzyTest
         [Test]
         public void Calculate_ShouldCalculateStraight(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
-            //Create mockdice
-            Mock<IDie> mockDie1 = new Mock<IDie>();
-            Mock<IDie> mockDie2 = new Mock<IDie>();
-            Mock<IDie> mockDie3 = new Mock<IDie>();
-            Mock<IDie> mockDie4 = new Mock<IDie>();
-            Mock<IDie> mockDie5 = new Mock<IDie>();
-
-            mockDie1.Setup(x => x.Value).Returns(inputDiceOne);
-            mockDie2.Setup(x => x.Value).Returns(inputDiceTwo);
-            mockDie3.Setup(x => x.Value).Returns(inputDiceThree);
-            mockDie4.Setup(x => x.Value).Returns(inputDiceFour);
-            mockDie5.Setup(x => x.Value).Returns(inputDiceFive);
-
-            //Create a dicelist
-            List<IDie> diceList = new List<IDie>
-            {
-                mockDie1.Object,
-                mockDie2.Object,
-                mockDie3.Object,
-                mockDie4.Object,
-                mockDie5.Object,
-            };
-
-            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
-            mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateStraight());
@@ -169,31 +121,7 @@ namespace YatzyTest
         public void Calculate_ShouldCalculateBonus(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
 
-            //Create mockdice
-            Mock<IDie> mockDie1 = new Mock<IDie>();
-            Mock<IDie> mockDie2 = new Mock<IDie>();
-            Mock<IDie> mockDie3 = new Mock<IDie>();
-            Mock<IDie> mockDie4 = new Mock<IDie>();
-            Mock<IDie> mockDie5 = new Mock<IDie>();
-
-            mockDie1.Setup(x => x.Value).Returns(inputDiceOne);
-            mockDie2.Setup(x => x.Value).Returns(inputDiceTwo);
-            mockDie3.Setup(x => x.Value).Returns(inputDiceThree);
-            mockDie4.Setup(x => x.Value).Returns(inputDiceFour);
-            mockDie5.Setup(x => x.Value).Returns(inputDiceFive);
-
-            //Create a dicelist
-            List<IDie> diceList = new List<IDie>
-            {
-                mockDie1.Object,
-                mockDie2.Object,
-                mockDie3.Object,
-                mockDie4.Object,
-                mockDie5.Object,
-            };
-
-            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
-            mockDiceHolder.Setup(x => x.DiceList).Returns(diceList);
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
 
             var sut = new ScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateChance());
