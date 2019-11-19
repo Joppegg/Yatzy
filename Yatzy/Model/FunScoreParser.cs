@@ -45,7 +45,7 @@ namespace Yatzy
         */
         public int CalculateNOfAKind(int numberOfAKind)
         {
-            int scoreToBeMultipliedByThree = 0;
+            int score = 0;
 
             for (int i=1; i<=6; i++)
             {
@@ -55,14 +55,15 @@ namespace Yatzy
                     if (d.Value == i)
                         count++;
                 }
-                if (count >= numberOfAKind)
-                    scoreToBeMultipliedByThree = i;
+                if (count == 3)
+                    score = 20;
+                if (count == 4)
+                    score = 25;
                 if (count == 5)
-                {
-                    return 50;
-                }
+                    score = 50;
+    
             }
-            return scoreToBeMultipliedByThree * numberOfAKind;
+            return score;
         }
 
         public int CalculateFullHouse()
