@@ -64,6 +64,7 @@ namespace YatzyTest
 
         }
 
+        [Test]
         public void GetScore_ShouldReturnCorrectScore() {
             var sut = new GameHelper();
 
@@ -80,7 +81,7 @@ namespace YatzyTest
             sut.SaveScore("Straight", 1);
             sut.SaveScore("Yatzy", 1);
             sut.SaveScore("Chance", 1);
-            Assert.AreEqual(12, sut.getScore());
+            Assert.AreEqual(12, sut.Score);
 
         }
 

@@ -7,7 +7,7 @@ namespace Yatzy
     public class GameHelper
     {
 
-
+        public int Score { get; set; }
         private Dictionary<string, int> _scoreList { get; set; }
         public bool IsGameFinished { get; set; }
         private int RoundNumber { get; set; }
@@ -39,6 +39,7 @@ namespace Yatzy
                      throw new InvalidOperationException(); 
 
             _scoreList[scoreName] = scoreValue;
+            Score += scoreValue;
             RoundNumber++;
             if (RoundNumber >= 12)
             {
