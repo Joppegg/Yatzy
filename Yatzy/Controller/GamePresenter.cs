@@ -30,6 +30,7 @@ namespace Yatzy.Controller
 
         public void NewGame()
         {
+            GameHelper = new GameHelper();
      
 
         }
