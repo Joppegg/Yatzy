@@ -21,26 +21,23 @@ namespace YatzyTest
         [Test]
         public void NewGame_ShouldResetAndNotHaveScoreParser()
         {
-            //Mock everything
-
+           
+            //Arrange
             GameHelper gamehelper = new GameHelper();
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             DiceHolder diceHolder = new DiceHolder();
 
-            //Scoreparser should be null, Gamehelper should be unused.
-
+       
+            //Act
             GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
-
             Assert.AreEqual(gamehelper, gamePresenter.GameHelper);
-            //ScoreParser
-            //GameHelperFactory should be called.
+         
+      
+            //Assert
             gamePresenter.NewGame();
             Assert.AreNotEqual(gamehelper, gamePresenter.GameHelper);
-            
-
-            
-         //  Assert.IsNull(gamePresenter.getScoreParser());
-            
+            Assert.IsNull(gamePresenter.ScoreParser);
+      
 
 
         }
