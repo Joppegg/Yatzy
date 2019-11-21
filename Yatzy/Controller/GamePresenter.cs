@@ -26,6 +26,7 @@ namespace Yatzy.Controller
             _diceHolder = diceHolder;
             GameHelper = gameHelper;
             _scoreParserFactory = scoreParserFactory;
+           
         }
 
         public void NewGame()
@@ -54,14 +55,13 @@ namespace Yatzy.Controller
 
 
         }
-        //Switch statement to save. should throw io exception if already saved.
+     
         public void SaveScore(string chosenScoring) 
         {
             int score = 0;
             string switchScoring = chosenScoring.ToLower();
-            //later on, should probably throw error to view.
+           
 
-            
             switch (switchScoring)
             {
                 case "ones":
@@ -129,6 +129,17 @@ namespace Yatzy.Controller
 
         }
 
+        //Locks the dice TO BE SAVED, and rolls the rest of the dice.
+        public void Roll(int[] diceToBeSaved)
+        {
+            for (int i = 0; i<diceToBeSaved.Length; i++)
+            {
+                _diceHolder.DiceList[diceToBeSaved[i]].IsLocked = true;
+            }
+
+            _diceHolder.RollDice();
+
+        }
 
 
     }

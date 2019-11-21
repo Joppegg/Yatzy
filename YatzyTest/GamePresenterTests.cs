@@ -99,6 +99,52 @@ namespace YatzyTest
 
         }
 
+        //Asserts that the presenter correctly locks the specified dice and roll the unlocked ones. 
+        [Test]
+        public void Roll_ShouldLockAndRollUnlockedDice()
+        {
+            //Arrange
+            int[] diceToRoll = new int[2];
+            diceToRoll[0] = 1;
+            diceToRoll[1] = 4;
+
+            Mock<IDie> mockDie1 = new Mock<IDie>();
+            Mock<IDie> mockDie2 = new Mock<IDie>();
+            Mock<IDie> mockDie3 = new Mock<IDie>();
+            Mock<IDie> mockDie4 = new Mock<IDie>();
+            Mock<IDie> mockDie5 = new Mock<IDie>();
+
+            List<IDie> diceList = new List<IDie>
+            {
+                mockDie1.Object,
+                mockDie2.Object,
+                mockDie3.Object,
+                mockDie4.Object,
+                mockDie5.Object,
+            };
+
+            IDiceHolder diceholder = new DiceHolder(diceList);
+            
+            Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            GamePresenter gamePresenter = new GamePresenter(diceholder, mockGameHelper.Object, scoreParserFactory);
+            
+            //Act
+     
+            mockDie1.Setup(x => x.IsLocked).Returns(true);
+            mockDie4.Setup(x => x.IsLocked).Returns(true);
+            gamePresenter.Roll(diceToRoll);
+            //assert
+            mockDie1.Verify(x => x.Roll(), Times.Never());
+            mockDie2.Verify(x => x.Roll(), Times.Once());
+            mockDie3.Verify(x => x.Roll(), Times.Once());
+            mockDie4.Verify(x => x.Roll(), Times.Never());
+            mockDie5.Verify(x => x.Roll(), Times.Once());
+
+
+        }
+
+
 
     }
 }

@@ -8,7 +8,7 @@ namespace Yatzy
     {
 
         public int Score { get; set; }
-        private Dictionary<string, int> _scoreList { get; set; }
+        public Dictionary<string, int> _scoreList { get; set; }
         public bool IsGameFinished { get; set; }
         private int RoundNumber { get; set; }
         public GameHelper(Dictionary<string, int> scoreList)
