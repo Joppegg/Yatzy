@@ -50,19 +50,21 @@ namespace YatzyTest
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             DiceHolder diceHolder = new DiceHolder();
             string funInput = "Fun";
-            string boringInput = "Boring";
+
 
             GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
 
+
+            //Assert scoreparser is null before choosing
             Assert.IsNull(gamePresenter.ScoreParser);
+            gamePresenter.ChooseScoreParser(funInput);
 
-            gamePresenter.ChooseScoreParser("Fun");
-
+         
+            //Assert scoreparser implements IScoreParser
             Assert.IsTrue(gamePresenter.ScoreParser is IScoreParser);
-
             gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
 
-
+            //Assert throw if invalid input
             Assert.Throws<InvalidOperationException>(() => gamePresenter.ChooseScoreParser("NotValid"));
 
 
