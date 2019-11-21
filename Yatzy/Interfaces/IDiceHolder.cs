@@ -10,5 +10,7 @@ namespace Yatzy.Interfaces
 
         public void RollDice();
         public int GetSumOfAllDice();
+
+
     }
 }

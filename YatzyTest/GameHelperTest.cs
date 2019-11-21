@@ -7,7 +7,7 @@ using Yatzy;
 namespace YatzyTest
 {
     [TestFixture]
-    class GameTest
+    class GameHelperTest
     {
 
         [Test]
@@ -17,7 +17,7 @@ namespace YatzyTest
         public void SaveScore_ShouldSaveScoreInList(string scoringOption, int scoringInput, int expected)
         {
             //Arrange
-            var sut = new Game();
+            var sut = new GameHelper();
 
             //Act
             sut.SaveScore(scoringOption, scoringInput);
@@ -31,7 +31,7 @@ namespace YatzyTest
         public void SaveScore_ShouldThrowExceptionOnUnknownScoreName()
         {
        
-            var sut = new Game();
+            var sut = new GameHelper();
             string scoringName = "This should not work";
             int score = 50;
             Assert.Throws<InvalidOperationException>(() => sut.SaveScore(scoringName, score));
@@ -41,7 +41,7 @@ namespace YatzyTest
         public void IsGameFinished_ShouldReturnTrueIfThirteenScoresHaveBeenPlayed()
         {
             //Arrange
-            var sut = new Game();
+            var sut = new GameHelper();
 
             //Act
             sut.SaveScore("Ones", 1);

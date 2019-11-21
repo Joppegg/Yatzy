@@ -135,9 +135,7 @@ namespace YatzyTest
         [Test]
         public void Calculate_ShouldCalculateChance(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScoring)
         {
-
             Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
-
             var sut = new BoringScoreParser(mockDiceHolder.Object);
             Assert.AreEqual(expectedScoring, sut.CalculateChance());
         }

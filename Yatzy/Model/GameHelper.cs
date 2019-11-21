@@ -4,20 +4,20 @@ using System.Text;
 
 namespace Yatzy
 {
-    public class Game
+    public class GameHelper
     {
 
 
         private Dictionary<string, int> _scoreList { get; set; }
         public bool IsGameFinished { get; set; }
         public int RoundNumber { get; set; }
-        public Game(Dictionary<string, int> scoreList)
+        public GameHelper(Dictionary<string, int> scoreList)
         {
             _scoreList = scoreList;
 
         }
         //initialize with empty list
-        public Game() {
+        public GameHelper() {
             _scoreList = new Dictionary<string, int>();
             _scoreList.Add("Ones", 0);
             _scoreList.Add("Twos", 0);

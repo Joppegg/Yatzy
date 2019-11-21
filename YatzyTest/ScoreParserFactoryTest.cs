@@ -39,12 +39,9 @@ namespace YatzyTest
             IScoreParser actual = scoreParserFactory.GetScoreParser(typeOfParser, mockDiceHolder.Object);
             BoringScoreParser expected = new BoringScoreParser(mockDiceHolder.Object);
 
-
             actual.Should().NotBeNull();
             actual.Should().BeEquivalentTo(expected);
-
         }
-
 
 
 
