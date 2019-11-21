@@ -54,14 +54,12 @@ namespace Yatzy.Controller
 
 
         }
-
         //Switch statement to save. should throw io exception if already saved.
         public void SaveScore(string chosenScoring) 
         {
             int score = 0;
             string switchScoring = chosenScoring.ToLower();
             //later on, should probably throw error to view.
-
 
             
             switch (switchScoring)
@@ -127,17 +125,9 @@ namespace Yatzy.Controller
                     GameHelper.SaveScore("Chance", score);
                     break;
 
-
             }
 
-            
-        
-
-
-
         }
-
-
 
     }
 }

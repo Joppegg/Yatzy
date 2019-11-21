@@ -64,6 +64,26 @@ namespace YatzyTest
 
         }
 
+        public void GetScore_ShouldReturnCorrectScore() {
+            var sut = new GameHelper();
+
+            //Act
+            sut.SaveScore("Ones", 1);
+            sut.SaveScore("Twos", 1);
+            sut.SaveScore("Threes", 1);
+            sut.SaveScore("Fours", 1);
+            sut.SaveScore("Fives", 1);
+            sut.SaveScore("Sixes", 1);
+            sut.SaveScore("ThreeOfAKind", 1);
+            sut.SaveScore("FourOfAKind", 1);
+            sut.SaveScore("FullHouse", 1);
+            sut.SaveScore("Straight", 1);
+            sut.SaveScore("Yatzy", 1);
+            sut.SaveScore("Chance", 1);
+            Assert.AreEqual(12, sut.getScore());
+
+        }
+
         
 
 
