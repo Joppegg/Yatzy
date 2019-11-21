@@ -132,7 +132,6 @@ namespace YatzyTest
             GamePresenter gamePresenter = new GamePresenter(diceholder, mockGameHelper.Object, scoreParserFactory);
       
 
-
             //Act
             gamePresenter.Roll(diceToRoll);
 
@@ -146,6 +145,22 @@ namespace YatzyTest
 
         }
 
+        [Test]
+        [TestCase(1, 2, 3, 4, 5)]
+        public void PrintDice_ShouldReturnDiceWithTheirScore(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive)
+        {
+            //Arrange
+            string expected = "Dice1: ["+inputDiceOne+"] Dice2: ["+inputDiceOne+"] Dice3: ["+inputDiceOne+"] Dice4: ["+inputDiceOne+"] Dice5: [" +inputDiceOne+"]";
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
+
+            //Act & Assert
+            Assert.AreEqual(expected, gamePresenter.PrintDice);
+                
+
+        }
 
 
     }
