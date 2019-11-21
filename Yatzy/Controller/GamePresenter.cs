@@ -55,18 +55,74 @@ namespace Yatzy.Controller
 
         }
 
+        //Switch statement to save. should throw io exception if already saved.
         public void SaveScore(string chosenScoring)
         {
             int score = 0;
             string switchScoring = chosenScoring.ToLower();
             //later on, should probably throw error to view.
-
-
-            GameHelper.SaveScore("Ones", 1);
+         
             switch (switchScoring)
             {
-                case "Ones":
+                case "ones":
                     score = ScoreParser.CalculateSingleNumbers(1);
+                    GameHelper.SaveScore("Ones", score);
+                    break;
+
+                case "twos":
+                    score = ScoreParser.CalculateSingleNumbers(2);
+                    GameHelper.SaveScore("Twos", score);
+                    break;
+
+                case "threes":
+                    score = ScoreParser.CalculateSingleNumbers(3);
+                    GameHelper.SaveScore("Threes", score);
+                    break;
+
+
+                case "fours":
+                    score = ScoreParser.CalculateSingleNumbers(4);
+                    GameHelper.SaveScore("Fours", score);
+                    break;
+
+                case "fives":
+                    score = ScoreParser.CalculateSingleNumbers(5);
+                    GameHelper.SaveScore("Fives", score);
+                    break;
+
+                case "sixes":
+                    score = ScoreParser.CalculateSingleNumbers(6);
+                    GameHelper.SaveScore("Sixes", score);
+                    break;
+
+                case "triples":
+                    score = ScoreParser.CalculateNOfAKind(3);
+                    GameHelper.SaveScore("ThreeOfAKind", score);
+                    break;
+
+                case "quadruples":
+                    score = ScoreParser.CalculateNOfAKind(4);
+                    GameHelper.SaveScore("FourOfAKind", score);
+                    break;
+
+                case "fullhouse":
+                    score = ScoreParser.CalculateFullHouse();
+                    GameHelper.SaveScore("FullHouse", score);
+                    break;
+
+                case "straight":
+                    score = ScoreParser.CalculateStraight();
+                    GameHelper.SaveScore("Straight", score);
+                    break;
+
+                case "yatzy":
+                    score = ScoreParser.CalculateNOfAKind(5);
+                    GameHelper.SaveScore("Yatzy", score);
+                    break;
+
+                case "chance":
+                    score = ScoreParser.CalculateChance();
+                    GameHelper.SaveScore("Chance", score);
                     break;
 
 

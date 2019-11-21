@@ -28,8 +28,7 @@ namespace Yatzy
             _scoreList.Add("ThreeOfAKind", 0);
             _scoreList.Add("FourOfAKind", 0);
             _scoreList.Add("FullHouse", 0);
-            _scoreList.Add("SmallStraight", 0);
-            _scoreList.Add("LargeStraight", 0);
+            _scoreList.Add("Straight", 0);
             _scoreList.Add("Yatzy", 0);
             _scoreList.Add("Chance", 0);
         }
@@ -41,7 +40,7 @@ namespace Yatzy
 
             _scoreList[scoreName] = scoreValue;
             RoundNumber++;
-            if (RoundNumber >= 13)
+            if (RoundNumber >= 12)
             {
                 IsGameFinished = true;
             }

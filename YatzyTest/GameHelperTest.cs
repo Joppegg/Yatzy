@@ -38,7 +38,7 @@ namespace YatzyTest
         }
 
         [Test]
-        public void IsGameFinished_ShouldReturnTrueIfThirteenScoresHaveBeenPlayed()
+        public void IsGameFinished_ShouldReturnTrueIfTwelveScoresHaveBeenPlayed()
         {
             //Arrange
             var sut = new GameHelper();
@@ -55,8 +55,7 @@ namespace YatzyTest
             sut.SaveScore("ThreeOfAKind", 1);
             sut.SaveScore("FourOfAKind", 1);
             sut.SaveScore("FullHouse", 1);
-            sut.SaveScore("SmallStraight", 1);
-            sut.SaveScore("LargeStraight", 1);
+            sut.SaveScore("Straight", 1);
             sut.SaveScore("Yatzy", 1);
             sut.SaveScore("Chance", 1);
 
