@@ -32,10 +32,28 @@ namespace Yatzy.Controller
         {
             GameHelper = new GameHelper();
      
-
         }
 
 
+        public void ChooseScoreParser(string nameOfParser)
+        {
+            if (nameOfParser.Equals("Fun", StringComparison.InvariantCultureIgnoreCase))
+            {
+               ScoreParser =  _scoreParserFactory.GetScoreParser("FunScoreParser", _diceHolder);
+            }
+            
+            else if (nameOfParser.Equals("Boring", StringComparison.InvariantCultureIgnoreCase))
+            {
+                ScoreParser = _scoreParserFactory.GetScoreParser("BoringScoreParser", _diceHolder);
+            }
+
+            else
+            {
+                throw new InvalidOperationException();
+            }
+
+
+        }
 
 
 
