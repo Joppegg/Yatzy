@@ -15,13 +15,13 @@ namespace Yatzy.Controller
     public class GamePresenter
     {
 
-        private DiceHolder _diceHolder;
+        private IDiceHolder _diceHolder;
         public IScoreParser ScoreParser { get; set; }
         public GameHelper GameHelper { get; set; }
         private ScoreParserFactory _scoreParserFactory;
 
 
-        public GamePresenter(DiceHolder diceHolder, GameHelper gameHelper,ScoreParserFactory scoreParserFactory)
+        public GamePresenter(IDiceHolder diceHolder, GameHelper gameHelper,ScoreParserFactory scoreParserFactory)
         {
             _diceHolder = diceHolder;
             GameHelper = gameHelper;

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace YatzyTest
 {
 
     [TestFixture]
-    public class GamePresenterTests
+    public class GamePresenterTests : ScoreParserTesting
     {
 
         /*
@@ -54,7 +55,6 @@ namespace YatzyTest
 
             GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
 
-
             //Assert scoreparser is null before choosing
             Assert.IsNull(gamePresenter.ScoreParser);
             gamePresenter.ChooseScoreParser(funInput);
@@ -67,16 +67,32 @@ namespace YatzyTest
             //Assert throw if invalid input
             Assert.Throws<InvalidOperationException>(() => gamePresenter.ChooseScoreParser("NotValid"));
 
-
-
-
         }
 
 
 
         [Test]
-        public void Roll_ShouldRollAndPresentDice()
+        [TestCase("Ones",1,2,3,4,5, 15)]
+        public void SaveScore_ShouldSaveScoreInGameHelper(string chosenScoring, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScore)
         {
+            //Arrange
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
+            gamePresenter.ChooseScoreParser("Fun");
+
+            //Act
+            gamePresenter.SaveScore(chosenScoring, mockDiceHolder);
+
+            //Assert
+
+            mockGameHelper.Verify(x => x.SaveScore(chosenScoring, expectedScore), Times.Once);
+
+
+
+
+
 
         }
 
