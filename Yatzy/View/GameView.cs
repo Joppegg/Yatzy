@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Yatzy.View
 {
+
+    //This class prints the game.
+
     class GameView
     {
+
+
     }
 }

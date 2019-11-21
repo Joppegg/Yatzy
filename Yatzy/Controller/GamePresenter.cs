@@ -136,10 +136,22 @@ namespace Yatzy.Controller
             {
                 _diceHolder.DiceList[diceToBeSaved[i]].IsLocked = true;
             }
-
             _diceHolder.RollDice();
 
         }
+        
+        //Graphically presents the dice and their values.
+        public string PrintDice()
+        {
+            return "Dice1: [" + _diceHolder.DiceList[0].Value + "]" +
+                " Dice2: [" + _diceHolder.DiceList[1].Value + "]" +
+                " Dice3: [" + _diceHolder.DiceList[2].Value + "]" +
+                " Dice4: [" + _diceHolder.DiceList[3].Value + "]" +
+                " Dice5: [" + _diceHolder.DiceList[4].Value + "]";
+        }
+
+
+      
 
 
     }

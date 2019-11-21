@@ -6,5 +6,7 @@ namespace YatzyTest
 {
     class GameViewTest
     {
+
+
     }
 }
