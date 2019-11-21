@@ -55,6 +55,29 @@ namespace Yatzy.Controller
 
         }
 
+        public void SaveScore(string chosenScoring)
+        {
+            int score = 0;
+            string switchScoring = chosenScoring.ToLower();
+            //later on, should probably throw error to view.
+
+
+            GameHelper.SaveScore("Ones", 1);
+            switch (switchScoring)
+            {
+                case "Ones":
+                    score = ScoreParser.CalculateSingleNumbers(1);
+                    break;
+
+
+            }
+
+            //try.
+            
+
+
+        }
+
 
 
     }

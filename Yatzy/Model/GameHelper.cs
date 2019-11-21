@@ -34,7 +34,7 @@ namespace Yatzy
             _scoreList.Add("Chance", 0);
         }
 
-        public void SaveScore(string scoreName, int scoreValue)
+        public virtual void SaveScore(string scoreName, int scoreValue)
         {
             if (!_scoreList.ContainsKey(scoreName))
                      throw new InvalidOperationException(); 

@@ -72,7 +72,7 @@ namespace YatzyTest
 
 
         [Test]
-        [TestCase("Ones",1,2,3,4,5, 15)]
+        [TestCase("Ones",1,2,3,4,5, 1)]
         public void SaveScore_ShouldSaveScoreInGameHelper(string chosenScoring, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScore)
         {
             //Arrange
@@ -83,7 +83,7 @@ namespace YatzyTest
             gamePresenter.ChooseScoreParser("Fun");
 
             //Act
-            gamePresenter.SaveScore(chosenScoring, mockDiceHolder);
+            gamePresenter.SaveScore(chosenScoring);
 
             //Assert
 
