@@ -56,12 +56,14 @@ namespace Yatzy.Controller
         }
 
         //Switch statement to save. should throw io exception if already saved.
-        public void SaveScore(string chosenScoring)
+        public void SaveScore(string chosenScoring) 
         {
             int score = 0;
             string switchScoring = chosenScoring.ToLower();
             //later on, should probably throw error to view.
-         
+
+
+            
             switch (switchScoring)
             {
                 case "ones":
@@ -95,12 +97,12 @@ namespace Yatzy.Controller
                     GameHelper.SaveScore("Sixes", score);
                     break;
 
-                case "triples":
+                case "threeofakind":
                     score = ScoreParser.CalculateNOfAKind(3);
                     GameHelper.SaveScore("ThreeOfAKind", score);
                     break;
 
-                case "quadruples":
+                case "fourofakind":
                     score = ScoreParser.CalculateNOfAKind(4);
                     GameHelper.SaveScore("FourOfAKind", score);
                     break;
@@ -128,8 +130,9 @@ namespace Yatzy.Controller
 
             }
 
-            //try.
             
+        
+
 
 
         }

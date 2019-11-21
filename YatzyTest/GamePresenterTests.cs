@@ -78,7 +78,7 @@ namespace YatzyTest
         [TestCase("Yatzy", 3, 3, 3, 3, 3, 50)]
         [TestCase("FullHouse", 3, 3, 3, 5, 5, 25)]
         [TestCase("Chance", 3, 3, 3, 4, 5, 18)]
-        [TestCase("Triples", 3, 3, 3, 4, 5, 20)]
+        [TestCase("ThreeOfAKind", 3, 3, 3, 4, 5, 20)]
 
 
         public void SaveScore_ShouldSaveScoreInGameHelper(string chosenScoring, int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive, int expectedScore)
@@ -97,12 +97,7 @@ namespace YatzyTest
             mockGameHelper.Verify(x => x.SaveScore(chosenScoring, expectedScore), Times.Once);
 
 
-
-
-
-
         }
-
 
 
     }
