@@ -122,18 +122,20 @@ namespace YatzyTest
                 mockDie4.Object,
                 mockDie5.Object,
             };
+            mockDie1.Setup(x => x.IsLocked).Returns(true);
+            mockDie4.Setup(x => x.IsLocked).Returns(true);
+
 
             IDiceHolder diceholder = new DiceHolder(diceList);
-            
             Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             GamePresenter gamePresenter = new GamePresenter(diceholder, mockGameHelper.Object, scoreParserFactory);
-            
+      
+
+
             //Act
-     
-            mockDie1.Setup(x => x.IsLocked).Returns(true);
-            mockDie4.Setup(x => x.IsLocked).Returns(true);
             gamePresenter.Roll(diceToRoll);
+
             //assert
             mockDie1.Verify(x => x.Roll(), Times.Never());
             mockDie2.Verify(x => x.Roll(), Times.Once());
