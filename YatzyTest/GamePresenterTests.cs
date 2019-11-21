@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Yatzy;
 using Yatzy.Controller;
+using Yatzy.Interfaces;
 using Yatzy.Model;
 
 namespace YatzyTest
@@ -39,8 +40,37 @@ namespace YatzyTest
             Assert.IsNull(gamePresenter.ScoreParser);
       
 
+        }
+
+        [Test]
+        public void ChooseScoreParser_ShouldSetScoreParserOrThrowIfInvalidInput()
+        {
+            //Arrange
+            GameHelper gamehelper = new GameHelper();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            DiceHolder diceHolder = new DiceHolder();
+            string funInput = "Fun";
+            string boringInput = "Boring";
+
+            GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
+
+            Assert.IsNull(gamePresenter.ScoreParser);
+
+            gamePresenter.ChooseScoreParser("Fun");
+
+            Assert.IsTrue(gamePresenter.ScoreParser is IScoreParser);
+
+            gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
+
+
+            Assert.Throws<InvalidOperationException>(() => gamePresenter.ChooseScoreParser("NotValid"));
+
+
+
 
         }
+
+
 
         [Test]
         public void Roll_ShouldRollAndPresentDice()
