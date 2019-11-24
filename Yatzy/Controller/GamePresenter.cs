@@ -132,9 +132,15 @@ namespace Yatzy.Controller
         //Locks the dice TO BE SAVED, and rolls the rest of the dice.
         public void Roll(int[] diceToBeSaved)
         {
+            //to ensure no locking in new rounds.
+            foreach(IDie d in _diceHolder.DiceList)
+            {
+                d.IsLocked = false;
+            }         
+
             for (int i = 0; i<diceToBeSaved.Length; i++)
             {
-                _diceHolder.DiceList[diceToBeSaved[i]].IsLocked = true;
+                _diceHolder.DiceList[diceToBeSaved[i]-1].IsLocked = true;
             }
             _diceHolder.RollDice();
         }
@@ -161,7 +167,6 @@ namespace Yatzy.Controller
 
         public int[] ParseDieSelection(string diceToSave)
         {
-
             char[] separator = {','};
             String[] diceList = diceToSave.Split(separator, StringSplitOptions.RemoveEmptyEntries);
       

@@ -27,7 +27,7 @@ namespace Yatzy
 
         public int CalculateSingleNumbers(int chosenScore)
         {
-            
+            _currentScore = 0;
            foreach (IDie d in _diceHolder.DiceList)
             {
                 if (d.Value == chosenScore)
@@ -108,7 +108,8 @@ namespace Yatzy
 
         public int CalculateChance()
         {
-            
+            _currentScore = 0;
+
             foreach (IDie d in _diceHolder.DiceList)
             {
                 _currentScore += d.Value;

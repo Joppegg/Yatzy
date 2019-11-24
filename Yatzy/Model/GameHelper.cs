@@ -39,6 +39,7 @@ namespace Yatzy
                      throw new InvalidOperationException(); 
 
             _scoreList[scoreName] = scoreValue;
+
             Score += scoreValue;
             RoundNumber++;
             if (RoundNumber >= 12)

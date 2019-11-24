@@ -2,16 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
+using Yatzy.View;
 
 namespace Yatzy
 {
-    static class Program
+    public class Program
     {
-
-        static void Main()
+        static void Main(string[] args)
         {
-     
+            GameView gameView = new GameView();
+            gameView.StartGame();
+
         }
     }
 }
