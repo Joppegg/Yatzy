@@ -159,6 +159,24 @@ namespace Yatzy.Controller
             return scoreList.ToString();
         }
 
+        public int[] ParseDieSelection(string diceToSave)
+        {
+
+            char[] separator = {','};
+            String[] diceList = diceToSave.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+      
+                int[] diceNumberList = Array.ConvertAll(diceList, int.Parse);
+                foreach(int i in diceNumberList)
+                {
+                    if (i < 1 || i > 6)
+                        throw new InvalidOperationException();
+                }
+
+            return diceNumberList;
+    
+
+        }
+
 
       
 

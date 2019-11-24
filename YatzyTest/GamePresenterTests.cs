@@ -210,8 +210,7 @@ namespace YatzyTest
             string input = "5,4,3";
             int[] expected = new int[] { 5, 4, 3 };
 
-            Assert.AreEqual(expected, gamePresenter.ParseDieSelection());
-
+            Assert.AreEqual(expected, gamePresenter.ParseDieSelection(input));
 
 
         }
