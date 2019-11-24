@@ -48,7 +48,7 @@ namespace Yatzy
 
         }
 
-        public Dictionary<string, int> GetScoreList()
+        public virtual Dictionary<string, int> GetScoreList()
         {
             return _scoreList;
         }

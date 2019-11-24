@@ -150,6 +150,16 @@ namespace Yatzy.Controller
                 " Dice5: [" + _diceHolder.DiceList[4].Value + "]";
         }
 
+        public string PrintListWithScore()
+        {
+            StringBuilder scoreList = new StringBuilder();
+            foreach (KeyValuePair<string, int> score in GameHelper.GetScoreList())
+            {
+                scoreList.Append(score.Key + " " + score.Value + "\n");
+            }
+            return scoreList.ToString();
+        }
+
 
       
 

@@ -162,6 +162,7 @@ namespace YatzyTest
         }
 
         [Test]
+        [TestCase(1, 2, 3, 4, 5)]
         public void PrintListWithScore_ShouldReturnCorrectScore(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive)
         {
             //Arrange
@@ -191,7 +192,7 @@ namespace YatzyTest
                 expectedListOutPut.Append(score.Key + " " + score.Value + "\n");
             }
 
-            Assert.AreEqual(expectedListOutPut, gamePresenter.PrintListWithScore());
+            Assert.AreEqual(expectedListOutPut.ToString(), gamePresenter.PrintListWithScore());
 
 
             //Act && Assert:
