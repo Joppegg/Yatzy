@@ -159,8 +159,52 @@ namespace YatzyTest
             //Act & Assert
             Assert.AreEqual(expected, gamePresenter.PrintDice());
                 
+        }
+
+        [Test]
+        public void PrintListWithScore_ShouldReturnCorrectScore(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive)
+        {
+            //Arrange
+            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
+
+            Dictionary<string, int> scoreList = new Dictionary<string, int>();
+            scoreList.Add("Ones", 4);
+            scoreList.Add("Twos", 6);
+            scoreList.Add("Threes", 3);
+            scoreList.Add("Fours", 8);
+            scoreList.Add("Fives", 15);
+            scoreList.Add("Sixes", 6);
+            scoreList.Add("ThreeOfAKind", 9);
+            scoreList.Add("FourOfAKind", 12);
+            scoreList.Add("FullHouse", 25);
+            scoreList.Add("Straight", 20);
+            scoreList.Add("Yatzy", 50);
+            scoreList.Add("Chance", 10);
+            mockGameHelper.Setup(x => x.GetScoreList()).Returns(scoreList);
+
+            StringBuilder expectedListOutPut = new StringBuilder();
+            foreach(KeyValuePair<string, int> score in scoreList)
+            {
+                expectedListOutPut.Append(score.Key + " " + score.Value + "\n");
+            }
+
+            Assert.AreEqual(expectedListOutPut, gamePresenter.PrintListWithScore());
+
+
+            //Act && Assert:
+
+            
+
+
+
+
 
         }
+
+
 
 
     }
