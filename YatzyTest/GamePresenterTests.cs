@@ -206,13 +206,11 @@ namespace YatzyTest
             Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
-
             string input = "5,4,3";
             int[] expected = new int[] { 5, 4, 3 };
 
+            //Act & Assert
             Assert.AreEqual(expected, gamePresenter.ParseDieSelection(input));
-
-
         }
 
 

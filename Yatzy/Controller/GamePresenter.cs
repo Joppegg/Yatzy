@@ -165,7 +165,7 @@ namespace Yatzy.Controller
             char[] separator = {','};
             String[] diceList = diceToSave.Split(separator, StringSplitOptions.RemoveEmptyEntries);
       
-                int[] diceNumberList = Array.ConvertAll(diceList, int.Parse);
+            int[] diceNumberList = Array.ConvertAll(diceList, int.Parse);
                 foreach(int i in diceNumberList)
                 {
                     if (i < 1 || i > 6)
@@ -173,12 +173,8 @@ namespace Yatzy.Controller
                 }
 
             return diceNumberList;
-    
 
         }
-
-
-      
 
 
     }
