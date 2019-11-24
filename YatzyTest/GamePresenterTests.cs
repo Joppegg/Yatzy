@@ -191,14 +191,26 @@ namespace YatzyTest
                 expectedListOutPut.Append(score.Key + " " + score.Value + "\n");
             }
 
-            Assert.AreEqual(expectedListOutPut.ToString(), gamePresenter.PrintListWithScore());
-
-
             //Act && Assert:
 
-            
+            Assert.AreEqual(expectedListOutPut.ToString(), gamePresenter.PrintListWithScore());
 
+        }
 
+        //this test checks if the die selection is parsed correctly and converted to an int array to be used for saving dice.
+        [Test]
+        public void ParseDieSelection_ShouldCorrectlyUseDelimiterOrThrow()
+        {
+            //Arrange
+            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
+            Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
+            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
+            GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
+
+            string input = "5,4,3";
+            int[] expected = new int[] { 5, 4, 3 };
+
+            Assert.AreEqual(expected, gamePresenter.ParseDieSelection());
 
 
 
