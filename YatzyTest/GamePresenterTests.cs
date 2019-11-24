@@ -162,11 +162,10 @@ namespace YatzyTest
         }
 
         [Test]
-        [TestCase(1, 2, 3, 4, 5)]
-        public void PrintListWithScore_ShouldReturnCorrectScore(int inputDiceOne, int inputDiceTwo, int inputDiceThree, int inputDiceFour, int inputDiceFive)
+        public void PrintListWithScore_ShouldReturnCorrectScore()
         {
             //Arrange
-            Mock<IDiceHolder> mockDiceHolder = GetMockDiceHolder(inputDiceOne, inputDiceTwo, inputDiceThree, inputDiceFour, inputDiceFive);
+            Mock<IDiceHolder> mockDiceHolder = new Mock<IDiceHolder>();
             Mock<GameHelper> mockGameHelper = new Mock<GameHelper>();
             ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             GamePresenter gamePresenter = new GamePresenter(mockDiceHolder.Object, mockGameHelper.Object, scoreParserFactory);
