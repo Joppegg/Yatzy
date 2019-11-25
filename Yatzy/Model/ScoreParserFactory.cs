@@ -7,7 +7,7 @@ namespace Yatzy.Model
 {
     public class ScoreParserFactory
     {
-        public IScoreParser GetScoreParser(string scoreParserType, IDiceHolder diceHolder)
+        public virtual IScoreParser GetScoreParser(string scoreParserType, IDiceHolder diceHolder)
         {
 
             if (scoreParserType.Equals("FunScoreParser", StringComparison.InvariantCultureIgnoreCase)){

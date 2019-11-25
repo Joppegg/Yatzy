@@ -48,12 +48,15 @@ namespace YatzyTest
         {
             //Arrange
             GameHelper gamehelper = new GameHelper();
-            ScoreParserFactory scoreParserFactory = new ScoreParserFactory();
             DiceHolder diceHolder = new DiceHolder();
+            Mock<ScoreParserFactory> mockScoreParserFactory = new Mock<ScoreParserFactory>();
             string funInput = "Fun";
+            mockScoreParserFactory.Setup(x => x.GetScoreParser("FunScoreParser", diceHolder)).Returns(new FunScoreParser(diceHolder));
+
+           
 
 
-            GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
+            GamePresenter gamePresenter = new GamePresenter(diceHolder, gamehelper, mockScoreParserFactory.Object);
 
             //Assert scoreparser is null before choosing
             Assert.IsNull(gamePresenter.ScoreParser);
@@ -62,7 +65,7 @@ namespace YatzyTest
          
             //Assert scoreparser implements IScoreParser
             Assert.IsTrue(gamePresenter.ScoreParser is IScoreParser);
-            gamePresenter = new GamePresenter(diceHolder, gamehelper, scoreParserFactory);
+            gamePresenter = new GamePresenter(diceHolder, gamehelper, mockScoreParserFactory.Object);
 
             //Assert throw if invalid input
             Assert.Throws<InvalidOperationException>(() => gamePresenter.ChooseScoreParser("NotValid"));
